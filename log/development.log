@@ -1,0 +1,1817 @@
+
+
+Started GET "/" for ::1 at 2017-01-24 21:28:48 +0900
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 4404ms (Views: 4391.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/custom.self-3c0c4f1c691b0e20ec344f9524590d6cf21fae8be4409a4b8296cb8cbfdb2767.css?body=1" for ::1 at 2017-01-24 21:28:53 +0900
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (3.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170124122953)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170124122953)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "birthday" date, "hometown" varchar, "age" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170124122953"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/signup" for ::1 at 2017-01-24 21:35:19 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (54.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 1945ms (Views: 1931.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signup" for ::1 at 2017-01-24 21:36:48 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+Completed 200 OK in 45ms (Views: 44.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for ::1 at 2017-01-24 21:43:21 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (1.5ms)
+  Rendered users/new.html.erb within layouts/application (20.1ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 1912ms (Views: 1895.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2017-01-24 21:43:26 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a4ZAatsraNkjPw/ywrEoBa3gjkn+Eju20aRhuxl7vHfkU49UNQvFVPzHUl0Yj6tyY1G7KIqpgYcgUNYLaQgMng==", "user"=>{"name"=>"", "email"=>"", "birthday"=>"", "hometown"=>"", "age"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered shared/_error_messages.html.erb (2.6ms)
+  Rendered users/new.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 81ms (Views: 43.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2017-01-24 21:45:14 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a4ZAatsraNkjPw/ywrEoBa3gjkn+Eju20aRhuxl7vHfkU49UNQvFVPzHUl0Yj6tyY1G7KIqpgYcgUNYLaQgMng==", "user"=>{"name"=>"", "email"=>"", "birthday"=>"", "hometown"=>"", "age"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered shared/_error_messages.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+Completed 200 OK in 60ms (Views: 43.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for ::1 at 2017-01-24 21:45:42 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FktLYeG35Jo0yJbbReIEVBUhaS/a1OeSlCtZWUHr6cSZnoRfD5dJF+swy3Sf3Icj25BcTq5vXaNl3+7pMZhZLQ==", "user"=>{"name"=>"sample", "email"=>"sample@gmail.com", "birthday"=>"0101", "hometown"=>"tokyo", "age"=>"10", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('sample@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "hometown", "age", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["name", "sample"], ["email", "sample@gmail.com"], ["hometown", "tokyo"], ["age", 10], ["password_digest", "$2a$10$zNXrc8vfOmzM7dkOtm4iRukzA/sEtNs2lEQ7CY0J8ZYUYc6FHrI/."], ["created_at", "2017-01-24 12:45:42.700865"], ["updated_at", "2017-01-24 12:45:42.700865"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 73ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-24 21:45:42 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 57ms (Views: 38.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-24 21:46:40 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+Completed 200 OK in 47ms (Views: 38.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for ::1 at 2017-01-24 21:46:47 +0900
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 38ms (Views: 37.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-01-24 21:47:08 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iV15d5IahJ446ij+B8eJqwV2vtDEkDz6EDb4Jf8GP8AGiLZJfDopE+cSdVHd+Qrcy8eLsbArhsvhwk+Vj3WPKQ==", "user"=>{"name"=>"test", "email"=>"test@gmail.com", "birthday"=>"0202", "hometown"=>"tokyo", "age"=>"12", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('test@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "hometown", "age", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["name", "test"], ["email", "test@gmail.com"], ["hometown", "tokyo"], ["age", 12], ["password_digest", "$2a$10$.ooiFOhKv4xtiPcKZnzLD.kERWHtg03xEXOu.TFNPFS7EyoHiNdZ."], ["created_at", "2017-01-24 12:47:08.316135"], ["updated_at", "2017-01-24 12:47:08.316135"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 78ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-24 21:47:08 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 41.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2017-01-24 21:49:09 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 283ms (Views: 275.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2017-01-24 21:51:17 +0900
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (12.4ms)
+Completed 200 OK in 70ms (Views: 69.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for ::1 at 2017-01-24 21:51:25 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3edJm2Xc/9L4tgB0AX46HcFXIJNx40mwJnuO2FGCFItSMoali/xSXydOXdvbQLlqD+YV8gVY84HXjzloIfGkYg==", "session"=>{"email"=>"sample@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "sample@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 76ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-24 21:51:25 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (2.6ms)
+Completed 200 OK in 65ms (Views: 63.0ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2017-01-24 21:51:31 +0900
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aT6OyQR8VygMJqzBaEpUWHjYljYVl5HzLUQ2pbGmeW/m60H36lz6pdPe8W6ydNcvtmmjV2EsK8LcsIEVwdXJhg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-24 21:51:32 +0900
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 53ms (Views: 52.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/user/1" for ::1 at 2017-01-24 21:53:27 +0900
+
+ActionController::RoutingError (No route matches [GET] "/user/1"):
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.7ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (112.2ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (62.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (166.6ms)
+
+
+Started GET "/login" for ::1 at 2017-01-24 21:53:34 +0900
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 34ms (Views: 33.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for ::1 at 2017-01-24 21:53:43 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wYRiraJmo/5ePjMJo9yVlxOCA8+e0QqDM51ot44t6JhOUa2TTEYOc4HGbqZ54hbg3TM2rupqsLLCad8H/l5YcQ==", "session"=>{"email"=>"sample@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "sample@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 64ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-24 21:53:43 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-24 21:55:43 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2017-01-24 22:02:05 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (12.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (24.5ms)
+Completed 200 OK in 300ms (Views: 289.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login" for ::1 at 2017-01-24 22:02:11 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QToRYIR2PpMb84q0OTPZna2GhQ++4AQfh93I2SSc+PjO795ealaTHsQL1xvjDVrqYzewbspbvi52KX9pVO9IEQ==", "session"=>{"email"=>"sample@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "sample@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 64ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-24 22:02:11 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 62ms (Views: 60.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/edit" for ::1 at 2017-01-24 22:02:13 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendered users/edit.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    2: 
+    3: <div class="row">
+    4:   <div class="col-md-6 col-md-offset-3">
+    5:     <%= form_for(@user) do |f| %>
+    6:       <%= render 'shared/error_messages', object: f.object %> <!-- ここを追加 -->
+    7:       <%= f.label :name %>
+    8:       <%= f.text_field :name, class: 'form_control' %>
+  app/views/users/edit.html.erb:5:in `_app_views_users_edit_html_erb__1899571957635143781_70321185854960'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (74.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (56.5ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (117.2ms)
+
+
+Started GET "/users/1/edit" for ::1 at 2017-01-24 22:02:51 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shared/_error_messages.html.erb (1.6ms)
+  Rendered users/edit.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 50ms (Views: 42.7ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/users/1" for ::1 at 2017-01-24 22:03:10 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RRf6wPGz8zLIQ66/9DvRV3YO4jO5VxmnrWzZoCLzgMzKwjX+H5Nevxe78xAuBVIguL/XUs3so5ZcmG4QUoAwJQ==", "user"=>{"name"=>"sample", "email"=>"sample@gmail.com", "birthday"=>"01/01", "hometown"=>"tokyo", "age"=>"10", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `update' for nil:NilClass):
+  app/controllers/users_controller.rb:26:in `update'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (71.6ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (56.7ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (126.6ms)
+
+
+Started PATCH "/users/1" for ::1 at 2017-01-24 22:03:43 +0900
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RRf6wPGz8zLIQ66/9DvRV3YO4jO5VxmnrWzZoCLzgMzKwjX+H5Nevxe78xAuBVIguL/XUs3so5ZcmG4QUoAwJQ==", "user"=>{"name"=>"sample", "email"=>"sample@gmail.com", "birthday"=>"01/01", "hometown"=>"tokyo", "age"=>"10", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save changes", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('sample@gmail.com') AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["password_digest", "$2a$10$UlM78zYN5daCAGjSY8GAAe7R1zUiPkmk4wWHJPECHz0aTAtftVRNa"], ["updated_at", "2017-01-24 13:03:43.198090"], ["id", 1]]
+  [1m[35m (2.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 94ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-24 22:03:43 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMicroposts (20170124145833)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "content" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_microposts_on_user_id_and_created_at" ON "microposts" ("user_id", "created_at")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170124145833"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/" for ::1 at 2017-01-25 00:18:21 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (2.3ms)
+  Rendered shared/_error_messages.html.erb (8.3ms)
+  Rendered shared/_micropost_form.html.erb (23.0ms)
+  Rendered static_pages/home.html.erb within layouts/application (38.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 2131ms (Views: 2043.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/custom.self-bf29fd7294446789c5e89efb655013160c3271f6bcb71ad8e6dcdfc4902fe944.css?body=1" for ::1 at 2017-01-25 00:18:24 +0900
+
+
+Started POST "/microposts" for ::1 at 2017-01-25 00:19:21 +0900
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"18zfEUkil6i2Ys3io87JjJBzX4ubHB2xWCSlmUz63H1YGRAvpwI6JWmakE158Er7XsJq6u+np4Cp0BIpPIlslA==", "micropost"=>{"content"=>"test"}, "commit"=>"Post"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "test"], ["user_id", 1], ["created_at", "2017-01-24 15:19:21.098669"], ["updated_at", "2017-01-24 15:19:21.098669"]]
+  [1m[36m (9.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 00:19:21 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (1.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.6ms)
+  Rendered static_pages/home.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 46ms (Views: 44.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 00:25:15 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (1.3ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.6ms)
+  Rendered static_pages/home.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 1588ms (Views: 1574.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/custom.self-74068dea12236fe48a9cb878db55feffcfe1502c2f38edf2268097acb8521599.css?body=1" for ::1 at 2017-01-25 00:25:17 +0900
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 00:25:19 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (18.0ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (Missing partial microposts/_micropost with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/miki/onboarding2017/microposts/app/views"
+):
+    15:     <% if @user.microposts.any? %>
+    16:       <h3>Microposts (<%= @user.microposts.count %>)</h3>
+    17:       <ol class="microposts">
+    18:         <%= render @microposts %>
+    19:       </ol>
+    20:     <% end %>
+    21:   </div>
+  app/views/users/show.html.erb:18:in `_app_views_users_show_html_erb___4121365282454274915_70198263397760'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.8ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (58.2ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (127.5ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 00:26:19 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (1.0ms)
+  Rendered users/show.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 47ms (Views: 45.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 00:28:08 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMicropost Exists (0.2ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mMicropost Load (0.1ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered microposts/_micropost.html.erb (2.9ms)
+  Rendered users/show.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 66ms (Views: 51.3ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/microposts/1" for ::1 at 2017-01-25 00:28:15 +0900
+Processing by MicropostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TGC9PV/J3AT5gxLvrWBtn6ara0RZLnSZ9RVMb9M2sITDtXIDselxiSZ7T0B3Xu7oaBpeJS2VzqgE4fvfo0UAbQ==", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? AND "microposts"."id" = ? LIMIT 1[0m  [["user_id", 1], ["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mDELETE FROM "microposts" WHERE "microposts"."id" = ?[0m  [["id", 1]]
+  [1m[35m (2.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 6ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 00:28:15 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 42ms (Views: 39.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 00:28:19 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (1.5ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.4ms)
+  Rendered static_pages/home.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 46ms (Views: 44.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/microposts" for ::1 at 2017-01-25 00:28:27 +0900
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UGghjPdDGU3cSpVw9afu+a6Ug8iJ8KdZOnPUVzb+vovfve6yGWO0wAOyyN8vmW2OYCW2qf1LHWjLh2PnRo0OYg==", "micropost"=>{"content"=>"sample test"}, "commit"=>"Post"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "sample test"], ["user_id", 1], ["created_at", "2017-01-24 15:28:27.090285"], ["updated_at", "2017-01-24 15:28:27.090285"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 00:28:27 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (1.0ms)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered shared/_micropost_form.html.erb (1.5ms)
+  Rendered static_pages/home.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 00:28:29 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered microposts/_micropost.html.erb (1.6ms)
+  Rendered users/show.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (2.7ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('hanako_kirameki@example.com') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+
+
+Started GET "/" for ::1 at 2017-01-25 15:40:48 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.7.1) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.7.1) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (88.5ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (89.8ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (199.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRelationships (20170124152920)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "relationships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followed_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_relationships_on_follower_id" ON "relationships" ("follower_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_relationships_on_followed_id" ON "relationships" ("followed_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_relationships_on_follower_id_and_followed_id" ON "relationships" ("follower_id", "followed_id")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170124152920"]]
+  [1m[35m (9.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_follower_id_and_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_follower_id_and_followed_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/" for ::1 at 2017-01-25 15:42:24 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (7.0ms)
+  Rendered shared/_error_messages.html.erb (4.3ms)
+  Rendered shared/_micropost_form.html.erb (29.5ms)
+  Rendered static_pages/home.html.erb within layouts/application (60.0ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 1041ms (Views: 895.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 15:42:30 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.6ms)
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mMicropost Load (2.1ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (19.6ms)
+  Rendered users/show.html.erb within layouts/application (52.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 168ms (Views: 163.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 15:42:33 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.0ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (2.0ms)
+  Rendered users/show.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 59ms (Views: 57.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-25 15:42:57 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 1], ["id", 2]]
+  Rendered users/_follow.html.erb (5.1ms)
+  Rendered users/_follow_form.html.erb (36.2ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (41.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 154ms (Views: 151.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/relationships" for ::1 at 2017-01-25 15:43:05 +0900
+Processing by RelationshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2o3LWb97lccALaAIAynN9Hgug5qqXkpjB0Y4H6ObO8RVWARnUVs4St/V/afZF06Dtp+2+97l8FL2so+v0+iLLQ==", "followed_id"=>"2", "commit"=>"Follow"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 1], ["followed_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "relationships" ("followed_id", "follower_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["followed_id", 2], ["follower_id", 1], ["created_at", "2017-01-25 06:43:05.258529"], ["updated_at", "2017-01-25 06:43:05.258529"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 1], ["followed_id", 2]]
+  Rendered users/_unfollow.html.erb (2.4ms)
+  Rendered relationships/create.js.erb (13.9ms)
+Completed 200 OK in 56ms (Views: 42.6ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-25 15:57:37 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (2.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Exists (2.3ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 1], ["id", 2]]
+  [1m[36mRelationship Load (2.4ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 1], ["followed_id", 2]]
+  Rendered users/_unfollow.html.erb (12.2ms)
+  Rendered users/_follow_form.html.erb (69.8ms)
+  [1m[35mMicropost Exists (2.3ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (93.9ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+Completed 200 OK in 1097ms (Views: 967.5ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 15:57:42 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.1ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (2.4ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (29.4ms)
+  Rendered users/show.html.erb within layouts/application (52.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 108ms (Views: 104.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-25 15:57:59 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 1], ["id", 2]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 1], ["followed_id", 2]]
+  Rendered users/_unfollow.html.erb (1.8ms)
+  Rendered users/_follow_form.html.erb (5.6ms)
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 69ms (Views: 67.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/relationships/1" for ::1 at 2017-01-25 15:58:00 +0900
+Processing by RelationshipsController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8x/mP3LcsJdv5dILfCXBepaKHct895up4irGuBC34jh8yikBnPwdGrAdj6SmG0INWDsoqghMIZgT3nEIYMRS0Q==", "commit"=>"Unfollow", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRelationship Load (0.2ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."id" = ? LIMIT 1  [["follower_id", 1], ["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 1], ["followed_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.5ms)[0m  DELETE FROM "relationships" WHERE "relationships"."id" = ?  [["id", 1]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 7.2ms)
+
+ActionView::MissingTemplate (Missing template relationships/destroy, application/destroy with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :web_console_v2], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/miki/onboarding2017/microposts/app/views"
+):
+  actionview (4.2.7.1) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.7.1) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.7.1) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.7.1) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.7.1) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.7.1) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.7.1) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.7.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.7.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.7.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.7.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.7.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.7.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.7.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.7.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.7.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.7.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.7.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.7.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.7.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.7.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.7.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.7.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.7.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.7.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.7.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.7.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.7.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.7.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.7.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.7.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.7.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.7.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.7.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.7.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.7.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/missing_template.text.erb (0.4ms)
+
+
+Started DELETE "/relationships/1" for ::1 at 2017-01-25 15:58:02 +0900
+Processing by RelationshipsController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8x/mP3LcsJdv5dILfCXBepaKHct895up4irGuBC34jh8yikBnPwdGrAdj6SmG0INWDsoqghMIZgT3nEIYMRS0Q==", "commit"=>"Unfollow", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRelationship Load (0.2ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."id" = ? LIMIT 1[0m  [["follower_id", 1], ["id", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Relationship with 'id'=1 [WHERE "relationships"."follower_id" = ?]):
+  app/controllers/relationships_controller.rb:10:in `destroy'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.1ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (69.0ms)
+
+
+Started DELETE "/relationships/1" for ::1 at 2017-01-25 15:58:03 +0900
+Processing by RelationshipsController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8x/mP3LcsJdv5dILfCXBepaKHct895up4irGuBC34jh8yikBnPwdGrAdj6SmG0INWDsoqghMIZgT3nEIYMRS0Q==", "commit"=>"Unfollow", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."id" = ? LIMIT 1[0m  [["follower_id", 1], ["id", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Relationship with 'id'=1 [WHERE "relationships"."follower_id" = ?]):
+  app/controllers/relationships_controller.rb:10:in `destroy'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.1ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.6ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (48.8ms)
+
+
+Started DELETE "/relationships/1" for ::1 at 2017-01-25 15:58:04 +0900
+Processing by RelationshipsController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8x/mP3LcsJdv5dILfCXBepaKHct895up4irGuBC34jh8yikBnPwdGrAdj6SmG0INWDsoqghMIZgT3nEIYMRS0Q==", "commit"=>"Unfollow", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."id" = ? LIMIT 1[0m  [["follower_id", 1], ["id", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Relationship with 'id'=1 [WHERE "relationships"."follower_id" = ?]):
+  app/controllers/relationships_controller.rb:10:in `destroy'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (57.4ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-25 15:58:07 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 1], ["id", 2]]
+  Rendered users/_follow.html.erb (2.0ms)
+  Rendered users/_follow_form.html.erb (6.1ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/relationships" for ::1 at 2017-01-25 15:58:09 +0900
+Processing by RelationshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MqWi0/YlPRqWlf37mXgjSL+1GE1CrswaTdlRmuOYxrm9cG3tGAWQl0ltoFRDRqA/cQQtLDYVdiu8LeYqk+t2UA==", "followed_id"=>"2", "commit"=>"Follow"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 1], ["followed_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "relationships" ("followed_id", "follower_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["followed_id", 2], ["follower_id", 1], ["created_at", "2017-01-25 06:58:09.890842"], ["updated_at", "2017-01-25 06:58:09.890842"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 1], ["followed_id", 2]]
+  Rendered users/_unfollow.html.erb (1.7ms)
+  Rendered relationships/create.js.erb (18.0ms)
+Completed 200 OK in 54ms (Views: 37.2ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-25 15:58:11 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["follower_id", 1], ["id", 2]]
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 1], ["followed_id", 2]]
+  Rendered users/_unfollow.html.erb (1.2ms)
+  Rendered users/_follow_form.html.erb (3.7ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 48ms (Views: 46.1ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/relationships/2" for ::1 at 2017-01-25 15:58:13 +0900
+Processing by RelationshipsController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ylOUmWSnzxB8I260x6f4aaRdq1TXdvdFOCJf/6A9ofFFhluniodinaPbMxsdmXseauyeNaPNTXTJ1uhP0E4RGA==", "commit"=>"Unfollow", "id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."id" = ? LIMIT 1[0m  [["follower_id", 1], ["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 1], ["followed_id", 2]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "relationships" WHERE "relationships"."id" = ?[0m  [["id", 2]]
+  [1m[35m (2.5ms)[0m  commit transaction
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 3.1ms)
+
+ActionView::MissingTemplate (Missing template relationships/destroy, application/destroy with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :web_console_v2], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/miki/onboarding2017/microposts/app/views"
+):
+  actionview (4.2.7.1) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.7.1) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.7.1) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.7.1) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.7.1) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.7.1) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.7.1) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.7.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.7.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.7.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.7.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.7.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.7.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.7.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.7.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.7.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.7.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.7.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.7.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.7.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.7.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.7.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.7.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.7.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.7.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.7.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.7.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.7.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.7.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.7.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.7.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.7.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.7.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.7.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.7.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.7.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/missing_template.text.erb (0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-25 15:58:14 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["follower_id", 1], ["id", 2]]
+  Rendered users/_follow.html.erb (1.7ms)
+  Rendered users/_follow_form.html.erb (4.7ms)
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 45ms (Views: 43.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 15:59:23 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT "users".id FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?  [["follower_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (2.2ms)
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered shared/_micropost_form.html.erb (23.0ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = 1
+  [1m[36mMicropost Load (0.2ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = 1  ORDER BY "microposts"."created_at" DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  Rendered microposts/_micropost.html.erb (1.6ms)
+  Rendered shared/_feed.html.erb (22.2ms)
+  Rendered static_pages/home.html.erb within layouts/application (56.7ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 97ms (Views: 92.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/microposts" for ::1 at 2017-01-25 15:59:34 +0900
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KlvUlS2TZRbvFaxTAClxDBwjRDuP5Hv1XjKN3s5cSvGljhurw7PImzDt8fzaF/J70pJxWvtfwcSvxjpuvi/6GA==", "micropost"=>{"content"=>"add follow and follower function"}, "commit"=>"Post"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "add follow and follower function"], ["user_id", 1], ["created_at", "2017-01-25 06:59:34.422497"], ["updated_at", "2017-01-25 06:59:34.422497"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 15:59:34 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT "users".id FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?  [["follower_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (1.3ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = 1
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = 1  ORDER BY "microposts"."created_at" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1)
+  Rendered microposts/_micropost.html.erb (1.0ms)
+  Rendered shared/_feed.html.erb (3.7ms)
+  Rendered static_pages/home.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 56ms (Views: 45.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for ::1 at 2017-01-25 15:59:40 +0900
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (20.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 70ms (Views: 69.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/login" for ::1 at 2017-01-25 15:59:50 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"obG4ue6brZKrI+0fp0ZCikbe/Z7gAzIdlAgrKrfAswsuZHeHALsAH3TbsLB9eMH9iG/I/5S4iCxl/Jyax7MD4g==", "session"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "test@gmail.com"]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 75ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-25 15:59:50 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered users/_follow_form.html.erb (0.1ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 41ms (Views: 39.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 15:59:55 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "users".id FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 2]]
+  Rendered shared/_user_info.html.erb (0.9ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.6ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = 2[0m
+  Rendered shared/_feed.html.erb (1.2ms)
+  Rendered static_pages/home.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/microposts" for ::1 at 2017-01-25 16:00:05 +0900
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8mQ4o/kpJ/Jz8b4XMcg+1N8d7Fw2dXuhEyNf2KqRIfh9sfedFwmKf6wJ47jr9r2jEazZPULOwZDi1+ho2uKREQ==", "micropost"=>{"content"=>"test tweet"}, "commit"=>"Post"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "test tweet"], ["user_id", 2], ["created_at", "2017-01-25 07:00:05.051577"], ["updated_at", "2017-01-25 07:00:05.051577"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 16:00:05 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "users".id FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 2]]
+  Rendered shared/_user_info.html.erb (0.9ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = 2[0m
+  [1m[35mMicropost Load (0.1ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = 2  ORDER BY "microposts"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (2)[0m
+  Rendered microposts/_micropost.html.erb (0.8ms)
+  Rendered shared/_feed.html.erb (4.4ms)
+  Rendered static_pages/home.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 42ms (Views: 39.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 16:00:14 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 2], ["id", 1]]
+  Rendered users/_follow.html.erb (1.1ms)
+  Rendered users/_follow_form.html.erb (3.0ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (0.0ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (0.9ms)
+  Rendered users/show.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/relationships" for ::1 at 2017-01-25 16:00:18 +0900
+Processing by RelationshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uHvpG/QX4nvmFte6aBTm8DBqha6/pb3cDIoyua1xO/A3riYlGjdP9jnuihWyKmWH/tuwz8seB+39foUJ3QKLGQ==", "followed_id"=>"1", "commit"=>"Follow"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRelationship Load (0.0ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 2], ["followed_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "relationships" ("followed_id", "follower_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["followed_id", 1], ["follower_id", 2], ["created_at", "2017-01-25 07:00:18.952572"], ["updated_at", "2017-01-25 07:00:18.952572"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 2], ["followed_id", 1]]
+  Rendered users/_unfollow.html.erb (1.4ms)
+  Rendered relationships/create.js.erb (9.4ms)
+Completed 200 OK in 27ms (Views: 21.1ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/relationships/3" for ::1 at 2017-01-25 16:00:22 +0900
+Processing by RelationshipsController#destroy as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cL1yvSYSoCcLqcP4RUWNfeHBxqge23mirH8phtxegcH/aL2DyDINqtRRnlefew4KL3DzyWpgw5Ndi542rC0xKA==", "commit"=>"Unfollow", "id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."id" = ? LIMIT 1  [["follower_id", 2], ["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 2], ["followed_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "relationships" WHERE "relationships"."id" = ?  [["id", 3]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 3.3ms)
+
+ActionView::MissingTemplate (Missing template relationships/destroy, application/destroy with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :web_console_v2], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/miki/onboarding2017/microposts/app/views"
+):
+  actionview (4.2.7.1) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.7.1) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.7.1) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.7.1) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.7.1) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.7.1) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.7.1) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.7.1) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.7.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.7.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.7.1) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.7.1) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.7.1) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.7.1) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.7.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.7.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.7.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.7.1) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.7.1) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.7.1) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.7.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.7.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.7.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.7.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.7.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.7.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.7.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.7.1) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.7.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.7.1) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.7.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.7.1) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.7.1) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.7.1) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.7.1) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.7.1) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.7.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.7.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.7.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7.1) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/miki/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/missing_template.text.erb (0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 16:00:24 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 2], ["id", 1]]
+  Rendered users/_follow.html.erb (0.9ms)
+  Rendered users/_follow_form.html.erb (2.9ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (0.7ms)
+  Rendered users/show.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 45ms (Views: 43.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 16:00:32 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "users".id FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 2]]
+  Rendered shared/_user_info.html.erb (0.9ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = 2[0m
+  [1m[35mMicropost Load (0.1ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = 2  ORDER BY "microposts"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (2)[0m
+  Rendered microposts/_micropost.html.erb (0.5ms)
+  Rendered shared/_feed.html.erb (3.0ms)
+  Rendered static_pages/home.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 54ms (Views: 51.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-25 16:00:37 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered users/_follow_form.html.erb (0.0ms)
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mMicropost Load (0.1ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC  [["user_id", 2]]
+  Rendered microposts/_micropost.html.erb (0.7ms)
+  Rendered users/show.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 16:00:57 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT "users".id FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?  [["follower_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered shared/_user_info.html.erb (0.9ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.3ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = 2
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = 2  ORDER BY "microposts"."created_at" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (2)
+  Rendered microposts/_micropost.html.erb (0.6ms)
+  Rendered shared/_feed.html.erb (3.8ms)
+  Rendered static_pages/home.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-25 16:01:04 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered users/_follow_form.html.erb (0.1ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 2]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 2]]
+  Rendered microposts/_micropost.html.erb (0.7ms)
+  Rendered users/show.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 16:01:12 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "users".id FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 2]]
+  Rendered shared/_user_info.html.erb (1.2ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = 2[0m
+  [1m[35mMicropost Load (0.1ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = 2  ORDER BY "microposts"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (2)[0m
+  Rendered microposts/_micropost.html.erb (0.6ms)
+  Rendered shared/_feed.html.erb (3.9ms)
+  Rendered static_pages/home.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 47ms (Views: 44.5ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/logout" for ::1 at 2017-01-25 16:01:14 +0900
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jCJowwo4xdaCR+ugI+zl306iQAmnvFZ10vqSy+2YHBMD96f95BhoW12/tg/50maogBN1aNMH7EQjDiV7neus+g=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 16:01:14 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/signup" for ::1 at 2017-01-25 16:01:16 +0900
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered users/new.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 40ms (Views: 39.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 16:01:18 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for ::1 at 2017-01-25 16:01:23 +0900
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 35ms (Views: 34.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/login" for ::1 at 2017-01-25 16:01:30 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pPfKVjWtmYhTmMw6kZAfp4bEMPvctVOz/Seo7QieMW4rIgVo2400BYxgkZVLrpzQSHUFmqgO6YIM0x9deO2Bhw==", "session"=>{"email"=>"sample@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "sample@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 63ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 16:01:30 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.0ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (1.3ms)
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 16:01:35 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "users".id FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (0.9ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = 1[0m
+  [1m[35mMicropost Load (0.2ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = 1  ORDER BY "microposts"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1)[0m
+  Rendered microposts/_micropost.html.erb (1.0ms)
+  Rendered shared/_feed.html.erb (4.8ms)
+  Rendered static_pages/home.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 52ms (Views: 49.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 16:01:44 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.1ms)
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mMicropost Load (0.0ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (1.0ms)
+  Rendered users/show.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 49ms (Views: 47.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-25 16:01:50 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["follower_id", 1], ["id", 2]]
+  Rendered users/_follow.html.erb (0.9ms)
+  Rendered users/_follow_form.html.erb (2.9ms)
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35mMicropost Load (0.0ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC  [["user_id", 2]]
+  Rendered microposts/_micropost.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 44ms (Views: 43.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/relationships" for ::1 at 2017-01-25 16:01:53 +0900
+Processing by RelationshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yNho5ZS/zN1gmwojBHOhD6Ll5UvKTAFUJfP/rFNWLK1HDafbep9hUL9jV4zeTSJ4bFTQKr73u2XUB0gcIyWcRA==", "followed_id"=>"2", "commit"=>"Follow"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mRelationship Load (0.0ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 1], ["followed_id", 2]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "relationships" ("followed_id", "follower_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["followed_id", 2], ["follower_id", 1], ["created_at", "2017-01-25 07:01:53.434225"], ["updated_at", "2017-01-25 07:01:53.434225"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36mRelationship Load (0.1ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 1], ["followed_id", 2]]
+  Rendered users/_unfollow.html.erb (1.3ms)
+  Rendered relationships/create.js.erb (8.8ms)
+Completed 200 OK in 26ms (Views: 20.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 16:01:57 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "users".id FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (1.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered shared/_micropost_form.html.erb (1.4ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" IN (2, 1)[0m
+  [1m[35mMicropost Load (0.1ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" IN (2, 1)  ORDER BY "microposts"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 1)[0m
+  Rendered microposts/_micropost.html.erb (1.2ms)
+  Rendered shared/_feed.html.erb (4.1ms)
+  Rendered static_pages/home.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/logout" for ::1 at 2017-01-25 16:02:04 +0900
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"69tCnXdKRGWyu440CXzC0sKbQJOp1gR9+RSH2SvtS71kDo2jmWrp6G1D05vTQkGlDCp18t1tvkwI4DBpW577VA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 16:02:04 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2017-01-25 16:37:47 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (21.9ms)
+Completed 200 OK in 691ms (Views: 674.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/login" for ::1 at 2017-01-25 16:37:56 +0900
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (58.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 128ms (Views: 127.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for ::1 at 2017-01-25 16:38:04 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y6ia1JHoPuOVwmFdw7j/nwe0iFls18/Ms96ot9I509XsfVXqf8iTbko6PPIZhnzoyQW9OBhsdf1CKh8HokpjPA==", "session"=>{"email"=>"sample@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "sample@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 89ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-25 16:38:04 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 74ms (Views: 72.3ms | ActiveRecord: 0.2ms)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from service at /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from service at /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138)
+DEPRECATION WARNING: You didn't set `secret_key_base`. Read the upgrade documentation to learn more about this new config option. (called from service at /Users/miki/.rbenv/versions/2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138)
+
+
+Started GET "/login" for ::1 at 2017-01-25 17:57:56 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (67.9ms)
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (58.6ms)
+Completed 200 OK in 1102ms (Views: 1084.3ms | ActiveRecord: 3.0ms)
