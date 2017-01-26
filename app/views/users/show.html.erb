@@ -2,10 +2,8 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
-
-<p class="text-center">Email: <%= @user.email %></p>
-<!-- <p class="text-center">Birthday: <%= @user.birthday %></p> -->
-<p class="text-center">Hometown: <%= @user.hometown %></p>
-<p class="text-center">Age: <%= @user.age %></p>
-
-  <%= link_to "Edit your profile" , edit_user_path(@user) %>
+Email: <%= @user.email %><br>
+Hometown: <%= @user.hometown %><br>
+Age: <%= @user.age %>
+<!-- <\!-- <p class="text-center">Birthday: <%= @user.birthday %></p> -\-> -->
+  <!-- <%= link_to "Edit your profile" , edit_user_path(@user) %> -->
