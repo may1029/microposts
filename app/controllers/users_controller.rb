@@ -1,5 +1,7 @@
 # coding: utf-8
 class UsersController < ApplicationController
+  before_action :set_user, only: [:edit, :update]
+
   def show # 追加
     @user = User.find(params[:id])
   end
@@ -19,7 +21,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    unless @user = current_user
+      redirect_to user_uerl(@user)
+    end
   end
  
   def update
