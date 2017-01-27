@@ -1,0 +1,30 @@
+<h1>Edit your profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %> <!-- ここを追加 -->
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form_control' %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'form_control' %>
+
+      <%= f.label :birthday %>
+      <%= f.text_field :birthday, class: 'form_control' %>
+
+      <%= f.label :hometown %>
+      <%= f.text_field :hometown, class: 'form_control' %>
+      <%= f.label :age %>
+      <%= f.text_field :age, class: 'form_control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form_control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class:'form_control' %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

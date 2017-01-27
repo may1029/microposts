@@ -9,6 +9,10 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      Email: <%= @user.email %><br>
+      Hometown: <%= @user.hometown %><br>
+      Age: <%= @user.age %>
+      <!-- <%= link_to "Edit your profile" , edit_user_path(@user) %> -->
     </section>
   </aside>
   <div class="col-md-8">
