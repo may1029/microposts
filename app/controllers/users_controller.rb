@@ -1,5 +1,7 @@
 # coding: utf-8
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
+
   def show # 追加
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
@@ -19,15 +21,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def show_following
-    @user = User.find(params[:follower_id])
-    # @user = @user.following.paginate(page: params[:page])
-    render 'show_follow'
+  def following
+    @user = User.find(params[:id])
+    # @users = current_user.following_relationships.find_by(params[:id]).followed
+    @users = current_user.following_relationships
+    render 'show_following'
   end
 
-  def followers
-    @user = User.find(params[:followed_id])
-    render 'show_followed'
+  def follower
+    @user = User.find(params[:id])
+    @users = current_user.follower_relationships
+    render 'show_follower'
   end
 
   private
