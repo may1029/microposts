@@ -2538,3 +2538,210 @@ Processing by UsersController#show as HTML
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
   Rendered layouts/_header.html.erb (0.6ms)
 Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for ::1 at 2017-01-31 19:33:55 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 42ms (Views: 40.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3/following" for ::1 at 2017-01-31 19:33:58 +0900
+Processing by UsersController#following as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/login
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2017-01-31 19:33:58 +0900
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 39ms (Views: 38.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/login" for ::1 at 2017-01-31 19:34:05 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g6bsoZrFNlJ7vGby9bHFIEMcm2mNo+SPBtye3skU/DYMcyOfdOWb36REO10vj0ZXja2uCPkYXr73KCluuWdM3w==", "session"=>{"email"=>"sample3@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "sample3@gmail.com"]]
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 64ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/3" for ::1 at 2017-01-31 19:34:05 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered users/_follow_form.html.erb (0.1ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2017-01-31 19:34:09 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 3], ["id", 2]]
+  Rendered users/_follow.html.erb (1.7ms)
+  Rendered users/_follow_form.html.erb (6.4ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 2]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 2]]
+  Rendered microposts/_micropost.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 46ms (Views: 44.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/relationships" for ::1 at 2017-01-31 19:34:11 +0900
+Processing by RelationshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y+YFrSoMJmL+aevJPYInzbss3WP4+oq7n5BqsEfm8WPsM8qTxCyL7yGRtmbnvKS6dZ3oAoxBMIpuZN0AN5VBig==", "followed_id"=>"2", "commit"=>"Follow"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 3], ["followed_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "relationships" ("followed_id", "follower_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["followed_id", 2], ["follower_id", 3], ["created_at", "2017-01-31 10:34:11.101420"], ["updated_at", "2017-01-31 10:34:11.101420"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 3], ["followed_id", 2]]
+  Rendered users/_unfollow.html.erb (2.5ms)
+  Rendered relationships/create.js.erb (18.1ms)
+Completed 200 OK in 45ms (Views: 37.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-31 19:34:13 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1[0m  [["follower_id", 3], ["id", 1]]
+  Rendered users/_follow.html.erb (1.1ms)
+  Rendered users/_follow_form.html.erb (3.4ms)
+  [1m[35mMicropost Exists (0.1ms)[0m  SELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mMicropost Load (0.1ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/relationships" for ::1 at 2017-01-31 19:34:14 +0900
+Processing by RelationshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2KzVBg8oW5N9HmOiJTeHGPci1dt7AaGEBVvy+S2/fKpXeRo44Qj2HqLmPg3/CQRvOZPgug+6G7X0r0VJXczMQw==", "followed_id"=>"1", "commit"=>"Follow"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 3], ["followed_id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "relationships" ("followed_id", "follower_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["followed_id", 1], ["follower_id", 3], ["created_at", "2017-01-31 10:34:14.565463"], ["updated_at", "2017-01-31 10:34:14.565463"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36mRelationship Load (0.1ms)[0m  [1mSELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1[0m  [["follower_id", 3], ["followed_id", 1]]
+  Rendered users/_unfollow.html.erb (1.2ms)
+  Rendered relationships/create.js.erb (14.6ms)
+Completed 200 OK in 32ms (Views: 25.8ms | ActiveRecord: 3.0ms)
+
+
+Started DELETE "/logout" for ::1 at 2017-01-31 19:34:19 +0900
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2KzVBg8oW5N9HmOiJTeHGPci1dt7AaGEBVvy+S2/fKpXeRo44Qj2HqLmPg3/CQRvOZPgug+6G7X0r0VJXczMQw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-31 19:34:19 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered static_pages/home.html.erb within layouts/application (0.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 41ms (Views: 39.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2017-01-31 19:34:21 +0900
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/login" for ::1 at 2017-01-31 19:34:27 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0irRCQeZXEQAGUWW40I8Ml29WDL0U18gCvb1sDyihcld/x436bnxyd/hGDk5fL9FkwxtU4Do5RH7AkIATNE1IA==", "session"=>{"email"=>"sample@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "sample@gmail.com"]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 79ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-31 19:34:27 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/_follow_form.html.erb (0.0ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
+  [1m[36mMicropost Load (0.0ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  Rendered microposts/_micropost.html.erb (0.9ms)
+  Rendered users/show.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for ::1 at 2017-01-31 19:34:31 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ? AND "users"."id" = ? LIMIT 1  [["follower_id", 1], ["id", 3]]
+  Rendered users/_follow.html.erb (0.9ms)
+  Rendered users/_follow_form.html.erb (2.9ms)
+  [1m[36mMicropost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "microposts" WHERE "microposts"."user_id" = ? LIMIT 1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 53ms (Views: 50.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/relationships" for ::1 at 2017-01-31 19:34:32 +0900
+Processing by RelationshipsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"07TJ7YWxP1yYbpYCdK0iJEw7c5GHrRUTeMflhs3S435cYQbTa5GS0UeWy62uk6FTgopG8PMWryKJM1I2vaFTlw==", "followed_id"=>"3", "commit"=>"Follow"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mRelationship Load (0.0ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 1], ["followed_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "relationships" ("followed_id", "follower_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["followed_id", 3], ["follower_id", 1], ["created_at", "2017-01-31 10:34:32.654656"], ["updated_at", "2017-01-31 10:34:32.654656"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mRelationship Load (0.1ms)[0m  SELECT  "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ? AND "relationships"."followed_id" = ? LIMIT 1  [["follower_id", 1], ["followed_id", 3]]
+  Rendered users/_unfollow.html.erb (1.4ms)
+  Rendered relationships/create.js.erb (9.5ms)
+Completed 200 OK in 28ms (Views: 21.9ms | ActiveRecord: 3.2ms)
+
+
+Started DELETE "/logout" for ::1 at 2017-01-31 19:34:34 +0900
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"07TJ7YWxP1yYbpYCdK0iJEw7c5GHrRUTeMflhs3S435cYQbTa5GS0UeWy62uk6FTgopG8PMWryKJM1I2vaFTlw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-31 19:34:34 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered static_pages/home.html.erb within layouts/application (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 44ms (Views: 42.6ms | ActiveRecord: 0.2ms)
