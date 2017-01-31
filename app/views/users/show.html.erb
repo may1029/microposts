@@ -11,10 +11,17 @@
       </h1>
       Email: <%= @user.email %><br>
       Hometown: <%= @user.hometown %><br>
-      Age: <%= @user.age %><br>
+      Age: <%= @user.age %>
       <!-- <%= link_to "Edit your profile" , edit_user_path(@user) %> -->
-      <%= link_to "Following" , following_user_path(@user) %><br>
-      <%= link_to "Follower" , follower_user_path(@user) %>
+      <!-- <%= link_to "Following" , following_user_path(@user) %><br> -->
+      <!-- <%= link_to "Follower" , follower_user_path(@user) %> -->
+    </section>
+    <section class="following-follower">
+      <h1><%= link_to "Following User" , following_user_path(@user) %>&nbsp;&nbsp;&nbsp;<%= @user_following.count %></h1><br>
+      <h1><%= link_to "Follower User" , follower_user_path(@user) %>&nbsp;&nbsp;&nbsp;<%= @user_follower.count %></h1>
+      <!-- <% @user_following.each do |user| %> -->
+      <!-- <%= user.followed.name %> -->
+      <!-- <% end %> -->
     </section>
   </aside>
   <div class="col-md-8">

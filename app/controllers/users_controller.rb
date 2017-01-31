@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def show # 追加
     @user = User.find(params[:id])
+    @user_following = @user.following_relationships
+    @user_follower = @user.follower_relationships
     @microposts = @user.microposts.order(created_at: :desc)
   end
 

@@ -23,7 +23,9 @@
     <h3>Follower Users</h3>
     <% @users.each do |user| %>
     <ol class="following">
-      <%= user.follower.name %>
+      <!-- <%= user.follower.name %> -->
+      <%= gravatar_for(user.follower, size: 20) %>
+      <%= link_to user.follower.name, user_path(user.follower.id)%>
       </ol>
     <% end %>
    </div> 
