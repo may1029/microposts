@@ -11,13 +11,22 @@
       </h1>
     </section>
   </aside>
-  <h3>
-    following
-  </h3>
-  <% @users.each do |user| %>
+  <!-- <% @users.each do |user| %> -->
+  <!-- <\!-- <%= user.followed.name %><br> -\-> -->
+  <!-- <\!-- <%= link_to(user.followed.id) %> -\-> -->
   <!-- <%= user.followed.name %><br> -->
-  <!-- <%= link_to(user.followed.id) %> -->
-  <%= user.followed.name %><br>
-  <% end %>
-  
+  <!-- <% end %> -->
+  <div class="col-md-8">
+    <h3>Following Users</h3>
+    <% @users.each do |user| %>
+    <ol class="following">
+      <!-- <%= user.followed.name %><br> -->
+      <!-- <%= link_to(user.followed.id) %> -->
+      <!-- <%= user.followed.name %> -->
+      <%= gravatar_for(user.followed, size: 20) %>
+      <%= link_to user.followed.name, user_path(user.followed.id)%>
+      <!-- <%= link_to(user.followed.name) %> -->
+      </ol>
+    <% end %>
+  </div>
 </div>

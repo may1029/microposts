@@ -11,13 +11,20 @@
       </h1>
     </section>
   </aside>
-  <h3>
-    follower
-  </h3>
-  <% @users.each do |user| %>
-  <!-- <%= user.followed.name %><br> -->
-  <!-- <%= link_to(user.followed.id) %> -->
-  <%= user.follower.name %><br>
-  <% end %>
-  
+  <!-- <h3> -->
+  <!--   follower -->
+  <!-- </h3> -->
+  <!-- <% @users.each do |user| %> -->
+  <!-- <\!-- <%= user.followed.name %><br> -\-> -->
+  <!-- <\!-- <%= link_to(user.followed.id) %> -\-> -->
+  <!-- <%= user.follower.name %><br> -->
+  <!-- <% end %> -->
+   <div class="col-md-8">
+    <h3>Follower Users</h3>
+    <% @users.each do |user| %>
+    <ol class="following">
+      <%= user.follower.name %>
+      </ol>
+    <% end %>
+   </div> 
 </div>

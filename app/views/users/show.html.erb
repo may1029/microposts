@@ -10,7 +10,7 @@
         <%= @user.name %>
       </h1>
       <%= link_to "Following" , following_user_path(@user) %><br>
-<%= link_to "Follower" , follower_user_path(current_user) %>
+<%= link_to "Follower" , follower_user_path(@user) %>
     </section>
   </aside>
   <div class="col-md-8">
