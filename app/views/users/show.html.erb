@@ -11,8 +11,10 @@
       </h1>
       Email: <%= @user.email %><br>
       Hometown: <%= @user.hometown %><br>
-      Age: <%= @user.age %>
+      Age: <%= @user.age %><br>
       <!-- <%= link_to "Edit your profile" , edit_user_path(@user) %> -->
+      <%= link_to "Following" , following_user_path(@user) %><br>
+      <%= link_to "Follower" , follower_user_path(@user) %>
     </section>
   </aside>
   <div class="col-md-8">
