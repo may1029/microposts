@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124152920) do
+ActiveRecord::Schema.define(version: 20170201025227) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "favorite_pos_id"
+    t.integer  "favorite_usr_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "favorites", ["favorite_pos_id"], name: "index_favorites_on_favorite_pos_id"
+  add_index "favorites", ["favorite_usr_id"], name: "index_favorites_on_favorite_usr_id"
 
   create_table "microposts", force: :cascade do |t|
     t.integer  "user_id"

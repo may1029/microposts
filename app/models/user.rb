@@ -15,6 +15,30 @@ class User < ActiveRecord::Base
            foreign_key: "followed_id",
            dependent:   :destroy
   has_many :follower_users, through: :follower_relationships, source: :follower
+  #original------->
+  has_many :favorite_relationships,
+           class_name:  "Favorite",
+           foreign_key: "favorite_pos",
+           dependent:   :destroy
+  has_many :favorite_users, through: :favorite_relationships, source: :favorite_usr
+  # #favoritedっているかな?
+  # has_many :favorited_relationships,
+  #          class_name: "Favorite",
+  #          foreign_key: "favorite_usr",
+  #          dependent: :destory
+  # has_many :favorited_users, through: :favorited_relationships, source: :favorite_pos
+  def favorite(other_user)
+    favorite_relationships.find_or_create_by(favorite_usr_id: other_user.id)
+  end
+
+  def unfavorite(other_user)
+    favorite_relationship = favorite_relationships.find_by(favorite_usr_id: other_user.id)
+    favorite_relationship.destroy if favorite_relationship
+  end
+  def following?(other_user)
+    favorite_users.include?(other_user)
+  end
+  #---->
   # 他のユーザーをフォローする
   def follow(other_user)
     following_relationships.find_or_create_by(followed_id: other_user.id)
