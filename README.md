@@ -9,6 +9,3 @@
 
 ## 0126
 * 
-
-## 0131
-heroku url --> http://may1029-microposts.herokuapp.com/
