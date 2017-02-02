@@ -2,6 +2,9 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create]
 
+  def index
+    redirect_to root_url
+  end
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
@@ -20,6 +23,15 @@ class MicropostsController < ApplicationController
     flash[:success] = "Micropost deleted"
     redirect_to request.referrer || root_url
   end
+
+  # def favorite
+  #   # @user = User.find(params[:id])
+  #   @micropost = current_user.microposts.find_by(id: params[:id])
+  #   return redirect_to root_url if @micropost.nil?
+  #   # @micropost.Favorite.create
+  #   @favorite = current_user.microposts.find_by(id: params[:liking_id])
+  #   Micropost.favorite(@favorite)
+  # end
 
   private
   def micropost_params

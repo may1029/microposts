@@ -11,11 +11,14 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :users do
+    get :favorites, on: :member
     member do
-      get :following, :follower
+      get :following, :follower #:favorite
     end
   end
-  resources :microposts
+
+  resources :microposts do
+      resource :favorites, only: [:create, :destroy]
+  end
   resources :relationships, only: [:create, :destroy]
-  resources :favorite, only: [:create, :destory]
 end
