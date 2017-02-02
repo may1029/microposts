@@ -3,12 +3,16 @@ class FavoritesController < ApplicationController
 
   def create
     @micropost = Micropost.find(params[:micropost_id])
-    @favorite = current_user.favorite.build(micropost: @micropost)
+    @favorite = current_user.favorites.build(micropost: @micropost)
 
     if @favorite.save
-      redirect_to microposts_url, notice: "add favorites"
+      flash[:success] = 'add favorites'
+      redirect_to microposts_url
+      #notice: "add favorites"
     else
-      redirect_to microposts_url, alert: "missing favorite for this micropost"
+      flash[:alert] = 'missing favorite for this micropost'
+      redirect_to microposts_url
+      #alert: "missing favorite for this micropost"
     end
     # @favorite = User.find(params[:liking_id])
     # current_user.favorite(@favorite)
@@ -17,8 +21,10 @@ class FavoritesController < ApplicationController
   def destroy
   #   @favorite = current_user.favorite_relationships.find(params[:id]).favorited_usr
     #   current_user.unfavorite(@favorite)
-    @favorite = current_user.favorite.find_by!(micropost_id: params[:micropost_id])
+    @favorite = current_user.favorites.find_by!(micropost_id: params[:micropost_id])
     @favorite.destroy
-    redirect_to microposts_url, notice: "remove the favorite"
+    flash[:success] = 'remove the favorite'
+    redirect_to microposts_url
+    #, notice: "remove the favorite"
   end
 end

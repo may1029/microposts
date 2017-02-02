@@ -59,8 +59,14 @@ class UsersController < ApplicationController
 # >>>># >>> followings-followers
   end
 
-  def favorite
+  def favorites
     @user = User.find(params[:id])
+    @feed_items = Micropost.where(id: @user.favorites.map{ |f| f.micropost_id })
+    # @user.favorites.each do |favorite|
+    #   @favorite_post << Micropost.find_by(favorite.micropost_id)
+    # end
+    # puts @favorites.each { |f|  }
+    render 'show_favorites'
   end
 
   private

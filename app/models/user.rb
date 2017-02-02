@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
            dependent:   :destroy
   has_many :follower_users, through: :follower_relationships, source: :follower
   #original------->
-  has_many :favorite,
+  has_many :favorites,
            # foreign_key: "liking_id",
            dependent: :destroy
   # has_many :microposts, through: :favorites

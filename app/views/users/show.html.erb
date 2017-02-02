@@ -23,6 +23,9 @@
       <!-- <%= user.followed.name %> -->
       <!-- <% end %> -->
     </section>
+    <section class="following-follower">
+      <h1><%= link_to "Favorite" , favorites_user_path(@user) %></h1>
+    </section>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>

@@ -11,7 +11,7 @@ class Micropost < ActiveRecord::Base
   has_many :favorites,
            # foreign_key: "liked_id",
            dependent: :destroy
-  def favorited_by? user
+  def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
   # has_many :users, through: :favorites

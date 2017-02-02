@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users do
     get :favorites, on: :member
     member do
-      get :following, :follower #:favorite
+      get :following, :follower# , :favorite
     end
   end
 
